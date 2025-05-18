@@ -1,0 +1,94 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Temperature Converter WASM</title>
+</head>
+<body>
+  <h1>WASM Temperature Converter</h1>
+
+  <div>
+    <label>Fahrenheit: <input id="fInput" type="number" value="32"></label>
+    <button onclick="convertFtoC()">Convert to Celsius</button>
+    <p id="cResult"></p>
+  </div>
+
+  <div>
+    <label>Celsius: <input id="cInput" type="number" value="0"></label>
+    <button onclick="convertCtoF()">Convert to Fahrenheit</button>
+    <p id="fResult"></p>
+  </div>
+
+  <script src="converter.js"></script>
+  <script>
+    createModule().then(Module => {
+      window.Module = Module;
+
+      window.convertFtoC = () => {
+        const f = parseFloat(document.getElementById('fInput').value);
+        const c = Module._FahrenheitToC(f);
+        document.getElementById('cResult').innerText = `Celsius: ${c.toFixed(2)}`;
+      };
+
+      window.convertCtoF = () => {
+        const c = parseFloat(document.getElementById('cInput').value);
+        const f = Module._CelsiusToF(c);
+        document.getElementById('fResult').innerText = `Fahrenheit: ${f.toFixed(2)}`;
+      };
+    });
+  </script>
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Temperature Converter WASM</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1>WASM Temperature Converter</h1>
+  
+  <div class="container">
+    <div class="converter-section">
+      <label for="fInput">Fahrenheit:</label>
+      <input id="fInput" type="number" value="32">
+      <button onclick="convertFtoC()">Convert to Celsius</button>
+      <p id="cResult">Celsius: 0.00</p>
+    </div>
+
+    <div class="converter-section">
+      <label for="cInput">Celsius:</label>
+      <input id="cInput" type="number" value="0">
+      <button onclick="convertCtoF()">Convert to Fahrenheit</button>
+      <p id="fResult">Fahrenheit: 32.00</p>
+    </div>
+  </div>
+
+  <div class="footer">
+    Powered by WebAssembly
+  </div>
+
+  <script src="converter.js"></script>
+  <script>
+    createModule().then(Module => {
+      window.Module = Module;
+
+      window.convertFtoC = () => {
+        const f = parseFloat(document.getElementById('fInput').value);
+        const c = Module._FahrenheitToC(f);
+        document.getElementById('cResult').innerText = `Celsius: ${c.toFixed(2)}`;
+      };
+
+      window.convertCtoF = () => {
+        const c = parseFloat(document.getElementById('cInput').value);
+        const f = Module._CelsiusToF(c);
+        document.getElementById('fResult').innerText = `Fahrenheit: ${f.toFixed(2)}`;
+      };
+    });
+  </script>
+</body>
+</html>
