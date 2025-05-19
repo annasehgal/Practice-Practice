@@ -19,6 +19,7 @@ If you want to rebuild the WebAssembly files (`converter.js` and `converter.wasm
 
 ```bash
 emcc converter.cpp -o converter.js -s EXPORTED_FUNCTIONS='["_CelsiusToF","_FahrenheitToC"]' -s MODULARIZE=1 -s 'EXPORT_NAME="createModule"'
+```
 
 ## How to Run
 
@@ -30,11 +31,11 @@ Because WebAssembly files must be loaded over a web server (not via direct file:
 
    ```bash
    python3 -m http.server --bind 127.0.0.1
-
+   ```
 3. Open your browser and go to:
     ```bash
     http://127.0.0.1:8000/index.html
-    
+    ```
 4. You should see your temperature converter page. Use it to convert temperatures between Fahrenheit and Celsius.
 
 5. When done, stop the server by pressing Ctrl + C in the terminal.
